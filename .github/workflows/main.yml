@@ -1,17 +1,22 @@
 name: Build LaTeX document
-on: [push]
+
+on: [push, pull_request]
+
 jobs:
   build_latex:
     runs-on: ubuntu-latest
+
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v6
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v4
         with:
-          root_file: dissertation.tex
+          root_file: template/dissertation.tex
+
       - name: Upload PDF file
         uses: actions/upload-artifact@v6
         with:
-          name: PDF
-          path: main.pdf
+          name: dissertation
+          path: template/dissertation.pdf
