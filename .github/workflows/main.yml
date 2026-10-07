@@ -13,10 +13,10 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v4
         with:
-          root_file: template/dissertation.tex
+          root_file: dissertation.tex
 
       - name: Upload PDF file
         uses: actions/upload-artifact@v6
         with:
-          name: dissertation
-          path: template/dissertation.pdf
+          name: PDF
+          path: main.pdf
